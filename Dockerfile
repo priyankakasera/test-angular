@@ -1,10 +1,12 @@
 #Build stage
 # base image(node:latest) taken from docker hub - version of node image should be same as ur development node version to avoid error
 FROM node:14-alpine3.14 AS node
+ARG ENV
  # set working directory inside image    
 WORKDIR /app   
 # first dot specifies the current directory where DockerFile is present. i.e. copy all code from this directory to docker working directory i.e. /app
-COPY . .                    
+COPY . .   
+RUN echo $ARG                 
 RUN npm install
 RUN npm run build --prod
 
