@@ -6,7 +6,7 @@ ARG ENV
 WORKDIR /app   
 # first dot specifies the current directory where DockerFile is present. i.e. copy all code from this directory to docker working directory i.e. /app
 COPY . .   
-RUN echo $ARG                 
+RUN echo $ENV                 
 RUN npm install
 RUN npm run build --prod
 
