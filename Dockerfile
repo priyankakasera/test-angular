@@ -9,7 +9,7 @@ COPY . .
 RUN echo $ENV                 
 RUN npm install
 RUN npm run build --prod
-
+RUN echo ${ENV} >> container.txt
 
 #Run Stage (The build stage is enough for creating the image. But since it contains all modules and code so the size of the image will be very large and hence we use another stage called run stage where we only copy the build from the build stage)
 
